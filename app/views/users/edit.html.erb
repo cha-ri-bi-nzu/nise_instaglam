@@ -4,5 +4,10 @@
 <%= form_with(model: @user, local: true) do |f| %>
   <%= f.label :password %>
   <%= f.password_field :password %>
-  <% current_user_password?(password) %>
+<% end %>
+
+<% if current_user_password?(password) %>
+    <%= render 'form', user: @user %>
+  <% else %>
+    <%= redirect_to edit_user_path, notice: "The password is in correct." %>
 <% end %>

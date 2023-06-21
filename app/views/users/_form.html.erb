@@ -20,7 +20,7 @@
   <%= f.password_field :password_confirmation %>
   <%= form.hidden_field :password_confirmation %>
 
-  <% if @picture.id.present? %>
+  <% if @user.id.present? %>
     <%= form.submit :"Can you edit？" %>
   <% else %>
     <%= f.submit "Create my account" %>

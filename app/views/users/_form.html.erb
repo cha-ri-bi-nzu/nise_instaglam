@@ -1,0 +1,28 @@
+<%= form_with(model: @user, local: true) do |f| %>  
+  <%= f.label :"new icon" %>
+  <%= image_tag(user.profile_image.icon.url) if user.profile_image && user.profile_image.url %>
+  <%= form.file_field :profile_image_cache %>
+  <%= form.hidden_field :profile_image_cache %>
+
+  <%= f.label :"new name" %>
+  <%= f.text_field :name %>
+  <%= form.hidden_field :name %>
+
+  <%= f.label :"new email" %>
+  <%= f.email_field :email %>
+  <%= form.hidden_field :email %>
+
+  <%= f.label :"new password" %>
+  <%= f.password_field :password %>
+  <%= form.hidden_field :password %>
+
+  <%= f.label :"new password_confirmation" %>
+  <%= f.password_field :password_confirmation %>
+  <%= form.hidden_field :password_confirmation %>
+
+  <% if @picture.id.present? %>
+    <%= form.submit :"Can you edit？" %>
+  <% else %>
+    <%= f.submit "Create my account" %>
+  <% end %>
+<% end %>

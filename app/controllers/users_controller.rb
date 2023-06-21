@@ -13,6 +13,7 @@ class UsersController < ApplicationController
   end
 
   def confirm
+    @user = User.new(user_params)
   end
 
   def show

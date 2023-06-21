@@ -1,3 +1,13 @@
 <h2>Edit profile</h2>
+<%= render 'error_form', user: @user %>
 
-<%= render 'form', picture: @picture %>
+<%= form_with(model: @user, local: true) do |f| %>
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+<% end %>
+
+<% if password == current_user.password %>
+  <%= render 'form', user: @user %>
+<% else %>
+  <p>"The password is in correct."<p>
+<% end %>

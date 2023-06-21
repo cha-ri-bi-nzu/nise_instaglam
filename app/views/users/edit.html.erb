@@ -4,10 +4,5 @@
 <%= form_with(model: @user, local: true) do |f| %>
   <%= f.label :password %>
   <%= f.password_field :password %>
-<% end %>
-
-<% if password == current_user.password %>
-  <%= render 'form', user: @user %>
-<% else %>
-  <p>"The password is in correct."<p>
+  <% current_user_password?(password) %>
 <% end %>

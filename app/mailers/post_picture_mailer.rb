@@ -1,0 +1,2 @@
+class PostPictureMailer < ApplicationMailer
+end

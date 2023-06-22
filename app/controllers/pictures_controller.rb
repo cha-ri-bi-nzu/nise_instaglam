@@ -4,9 +4,11 @@ class PicturesController < ApplicationController
   end
 
   def new
+    
   end
 
   def create
+    # ContactMailer.contact_mail(@contact).deliver
   end
 
   def confirm

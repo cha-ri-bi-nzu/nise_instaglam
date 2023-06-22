@@ -1,22 +1,14 @@
 <h3>"Are there any mistakes?"</h3>
-<%= f_with(model: @user, url: users_path, local: true) do |f| %>
-  <p>"icon image:"<%= profile_image_tag(@user.profile_image.icon.url) if @user.profile_image && @user.profile_image.icon.url %></p>
+<%= form_with(model: @user, url: users_path, local: true) do |f| %>
+  <p>icon image:<%= image_tag(@user.profile_image.icon.url) if @user.profile_image && @user.profile_image.icon.url %></p>
   <%= f.hidden_field :profile_image_cache %>
-  <p>"user name:"<%= @user.name %></p>
+  <p>user name:<%= @user.name %></p>
   <%= f.hidden_field :name %>
-  <p>"user email:"<%= @user.email %></p>
+  <p>user email:<%= @user.email %></p>
   <%= f.hidden_field :email %>
-  <p>"user password:"<%= @user.password %></p>
-  <%= f.hidden_field :password %><>
+  <p>user password:<%= @user.password %></p>
+  <%= f.hidden_field :password %>
   <%= f.hidden_field :password_confirmation %>
   <%= f.submit "Perfect!" %>
-<% end %>
-
-<%= f_with(model:@user, url:new_user_path, local:true, method:"get") do |f| %>
-  <%= f.hidden_field :profile_image_cache %>
-  <%= f.hidden_field :name %>
-  <%= f.hidden_field :email %>
-  <%= f.hidden_field :password %><>
-  <%= f.hidden_field :password_confirmation %>
   <%= f.submit "I will rewrite it!", name: "back" %>
 <% end %>

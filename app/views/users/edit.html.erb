@@ -1,16 +1,2 @@
 <h2>Edit profile</h2>
-<%= render 'error_form', user: @user %>
-
-<%= form_with(model: @user, local: true) do |f| %>
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-  <%= f.hidden_field :password %>
-  <%= f.hidden_field :password %>
-  <%= f.submit "Input completed!", name: "back" %>
-  <% if current_user_password?(password) %>
-    <%= render 'form', user: @user %>
-  <% else %>
-    <%= f.hidden_field :password_confirmation %>
-    <%= redirect_to edit_user_path, notice: "The password is in correct." %>
-  <% end %>
-<% end %>
+<%= render 'form', user: @user %>

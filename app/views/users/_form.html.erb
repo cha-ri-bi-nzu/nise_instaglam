@@ -1,5 +1,15 @@
-<div class="field">
-  <%= form_with(model: @user, local: true, url: choose_new_or_edit) do |f| %>  
+<%= form_with(model: @picture, local: true, url: choose_new_or_edit) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this<%= @user.name %> f being saved:</h2>
+      <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
     <%= f.label :"new icon" %>
     <%= image_tag(user.profile_image.icon.url) if user.profile_image && user.profile_image.url %>
     <%= f.file_field :profile_image %>
@@ -22,5 +32,6 @@
     <% else %>
       <%= f.submit "Create my account" %>
     <% end %>
-  <% end %>
-</div>
+  </div>
+<% end %>
+

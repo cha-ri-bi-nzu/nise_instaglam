@@ -31,12 +31,14 @@ header, footer {
 }
 
 header {
+  margin-top: 15px;
   height: 70px;
   width: 100%;
 }
 
-header h1 {
-  line-height: 70px;
+header h2 {
+  margin: 0px 0px 0px 15px;
+  line-height: 35px;
   color: #fff;
   text-decoration: none;
 }

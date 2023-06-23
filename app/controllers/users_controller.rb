@@ -21,6 +21,7 @@ class UsersController < ApplicationController
 
   def confirm
     @user = User.new(user_params)
+    render :new if @user.invalid?
   end
 
   def show

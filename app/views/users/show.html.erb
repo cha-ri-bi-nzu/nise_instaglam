@@ -1,6 +1,10 @@
-<h1><%= @user.name %>のページ</h1>
-
-<p>メールアドレス: <%= @user.email %></p>
+<h1><%= image_tag(@user.profile_image.icon.url) if @user.profile_image && @user.profile_image.icon.url %>  <%= @user.name %></h1>
+<%= form_with(model: @user, url: users_path, local: true) do |f| %>
+  <%= f.hidden_field :profile_image_cache %>
+  <br>
+  <br>
+  <p>user email:<%= @user.email %></p>
+<% end %>
 <br>
 <br>
 <%= link_to 'Edit your profile', edit_user_path(@user.id) %>

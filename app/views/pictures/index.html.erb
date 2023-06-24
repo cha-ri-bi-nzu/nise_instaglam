@@ -8,8 +8,9 @@
   </tr>
   <% @pictures.each do |picture| %>
     <tr>
-    <td><%= image_tag(@picture.user.profile_image.icon.url) if @picture.user.profile_image && @picture.user.profile_image.icon.url %>  <%= picture.user.name %></td>
-      <td><%= image_tag(picture.image.url) if picture.image && picture.image.url %></td>
+      <td><%= image_tag(picture.user.profile_image.icon.url) if picture.user.profile_image && picture.user.profile_image.icon.url %></td>
+      <td><%= picture.user.name %></td>
+      <td><%= image_tag(picture.image.thumb.url) if picture.image && picture.image.url %></td>
       <td><%= picture.content %></td>
       <td><%= link_to 'confirm', picture_path(picture.id) %></td>
       <% if picture.user_id == current_user.id %>

@@ -11,20 +11,20 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :Please select image %>
+    <%= form.label :"Please select image" %>
     <%= image_tag(picture.image.thumb.url) if picture.image && picture.image.url %>
     <%= form.file_field :image %>
     <%= form.hidden_field :image_cache %>
     <br>
     <br>
-    <%= form.label :content %>
+    <%= form.label :Content %>
     <%= form.text_area :content %>
   </div>
   <br>
   <% if @picture.id.present? %>
-    <%= form.submit :Could you edit? %>
+    <%= form.submit :"Could you edit?" %>
   <% else %>
-    <%= form.submit :Go post! %>
+    <%= form.submit :"Go post!" %>
   <% end %>
   <br>
 <% end %>

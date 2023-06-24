@@ -4,11 +4,17 @@ class PicturesController < ApplicationController
   end
 
   def new
-    
+    @picture = Picture.new
   end
 
   def create
-    # ContactMailer.contact_mail(@contact).deliver
+    @picture = current_user.pictures.build(picture_params)
+    if @picture.save
+      # ContactMailer.contact_mail(@contact).deliver
+      redirect_to pictures_path, notice: "投稿でけた👍"
+    else
+      render :new
+    end
   end
 
   def confirm

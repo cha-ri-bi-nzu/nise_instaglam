@@ -1,2 +1,9 @@
-<h1>Pictures#show</h1>
-<p>Find me in app/views/pictures/show.html.erb</p>
+<h3>Post details</h3>
+
+<br>
+<p>Contributor: <%= @picture.user.name %></p>
+<br>
+<p>image: <%= image_tag(@picture.image.url) if @picture.image && @picture.image.url %></p>
+<br>
+<p>comment: <%= @picture.content %></p>
+<br>

@@ -1,9 +1,9 @@
 <h3>間違えとらん？</h3>
-<%= form_with(model: @picture, url: pictures_path, local: true) do |form| %>
+<%= form_with(model: @picture, url: pictures_path, local: true) do |f| %>
   <%= image_tag(@picture.image.thumb.url) if @picture.image && @picture.image.url %>
-  <%= form.hidden_field :image_cache %>
+  <%= f.hidden_field :image_cache %>
   <p>一言:<%= @picture.content %></p>
-  <%= form.hidden_field :content %>
-  <%= form.submit "Perfect!" %>
-  <%= form.submit "Rewrite", name: "back" %>
+  <%= f.hidden_field :content %>
+  <%= f.submit "Perfect!" %>
+  <%= f.submit "Rewrite", name: "back" %>
 <% end %>

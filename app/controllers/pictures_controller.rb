@@ -1,5 +1,7 @@
 class PicturesController < ApplicationController
   before_action :set_picture, only: [:show, :edit, :update, :destroy]
+  before_action :it_is_your_post?, only: [:edit, :update, :destroy]
+  
   def index
     @pictures = Picture.all
   end
@@ -47,5 +49,9 @@ class PicturesController < ApplicationController
 
   def set_picture
     @picture = Picture.find(params[:id])
+  end
+
+  def it_is_your_post?
+    redirect_to pictures_path unless @picture.user_id == current_user.id
   end
 end

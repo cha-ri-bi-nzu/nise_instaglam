@@ -1,2 +1,9 @@
-<h1>Pictures#confirm</h1>
-<p>Find me in app/views/pictures/confirm.html.erb</p>
+<h3>間違えとらん？</h3>
+<%= form_with(model: @picture, url: pictures_path, local: true) do |form| %>
+  <%= image_tag(@picture.image.thumb.url) if @picture.image && @picture.image.url %>
+  <%= form.hidden_field :image_cache %>
+  <p>一言:<%= @picture.content %></p>
+  <%= form.hidden_field :content %>
+  <%= form.submit "Perfect!" %>
+  <%= form.submit "Rewrite", name: "back" %>
+<% end %>

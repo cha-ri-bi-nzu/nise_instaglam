@@ -18,6 +18,8 @@ class PicturesController < ApplicationController
   end
 
   def confirm
+    @picture = Picture.new(picture_params)
+    render :new if @picture.invalid?
   end
 
   def show
@@ -30,5 +32,10 @@ class PicturesController < ApplicationController
   end
 
   def destroy
+  end
+
+  private
+  def picture_params
+    params.require(:picture).permit(:image, :image_cache, :content)
   end
 end

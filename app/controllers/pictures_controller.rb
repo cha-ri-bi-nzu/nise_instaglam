@@ -12,17 +12,20 @@ class PicturesController < ApplicationController
 
   def create
     @picture = current_user.pictures.build(picture_params)
-    if @picture.save
-      # ContactMailer.contact_mail(@contact).deliver
-      redirect_to pictures_path, notice: "投稿でけた👍"
-    else
+    if params[:back]
       render :new
+    else
+      if @picture.save
+        # ContactMailer.contact_mail(@contact).deliver
+        redirect_to pictures_path, notice: "投稿でけた👍"
+      else
+        render :new
+      end
     end
   end
 
   def confirm
     @picture = Picture.new(picture_params)
-    render :new if @picture.invalid?
   end
 
   def show

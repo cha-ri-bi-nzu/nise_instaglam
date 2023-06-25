@@ -4,6 +4,7 @@ class PicturesController < ApplicationController
   
   def index
     @pictures = Picture.all
+    # @favorite = current_user.favorites.find_by(picture_id: @picture.id)
   end
 
   def new
@@ -29,6 +30,7 @@ class PicturesController < ApplicationController
   end
 
   def show
+    @favorite = current_user.favorites.find_by(picture_id: @picture.id)
   end
 
   def edit

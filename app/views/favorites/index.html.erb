@@ -1,2 +1,26 @@
-<h1>Favorites#index</h1>
-<p>Find me in app/views/favorites/index.html.erb</p>
+<h1>My favorite posts!!</h1>
+
+<table>
+  <tr>
+    <th>Poster</th>
+    <th>Image</th>
+    <th>Content</th>
+  </tr>
+  <% @favorites.each do |favorite| %>
+    <tr>
+      <td><%= image_tag(favorite.picture.user.profile_image.icon.url) if favorite.picture.user.profile_image && favorite.picture.user.profile_image.icon.url %></td>
+      <td><%= favorite.picture.user.name %></td>
+      <td><%= image_tag(favorite.picture.image.thumb.url) if favorite.picture.image && favorite.picture.image.url %></td>
+      <td><%= favorite.picture.content %></td>
+      <td><%= link_to 'confirm', picture_path(favorite.picture.id) %></td>
+      # <% if favorite.user_id == current_user.id %>
+      #   <td><%= link_to 'edit', edit_picture_path(picture.id) %></td>
+      #   <td><%= link_to 'delete', favorite_path(favorite.picture_id), method: :delete, data: {confirm: '本当に消して良かですか？(>_<)'} %></td>
+      # <% end %>
+    </tr>
+  <% end %>
+</table>
+<br>
+<%= link_to "Let's post your ", new_picture_path %>
+<br>
+<br>

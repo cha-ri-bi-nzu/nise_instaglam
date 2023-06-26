@@ -3,6 +3,7 @@
 <table>
   <tr>
     <th>Poster</th>
+    <th>    </th>
     <th>Image</th>
     <th>Content</th>
   </tr>
@@ -30,6 +31,8 @@
   <% end %>
 </table>
 <br>
-<%= link_to "Let's post your ", new_picture_path %>
+<%= link_to "Let's post just time you !", new_picture_path %>
+<br>
+<%= link_to "Go to my page", user_path(current_user.id) %>
 <br>
 <br>

@@ -19,6 +19,9 @@
         <td><%= link_to 'delete', picture_path(picture.id), method: :delete, data: {confirm: '本当に消して良かですか？(>_<)'} %></td>
       <% end %>
       <% if false %>
+        <% unless picture.user_id == current_user.id  %>
+          <td><%= 'お気に入り登録済み' if current_user.favorites.present? %></td>
+        <% end %>
         <% unless picture.user_id == current_user.id %>
           <% if @favorite.present? %>
             <td><%= link_to 'お気に入り解除する', favorite_path(id: @favorite.id), method: :delete, class: 'btn btn-danger' %></td>

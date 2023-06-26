@@ -9,11 +9,11 @@
   </tr>
   <% @favorites.each do |favorite| %>
     <tr>
-      <td><%= image_tag(favorite.picture.user.profile_image.icon.url) if favorite.picture.user.profile_image && favorite.picture.user.profile_image.icon.url %></td>
-      <td><%= favorite.picture.user.name %></td>
-      <td><%= image_tag(favorite.picture.image.thumb.url) if favorite.picture.image && favorite.picture.image.url %></td>
-      <td><%= favorite.picture.content %></td>
-      <td><%= link_to 'confirm', picture_path(favorite.picture.id) %></td>
+      <td><%= image_tag(favorite.user.profile_image.icon.url) if favorite.user.profile_image && favorite.user.profile_image.icon.url %></td>
+      <td><%= favorite.user.name %></td>
+      <td><%= image_tag(favorite.image.thumb.url) if favorite.image && favorite.image.url %></td>
+      <td><%= favorite.content %></td>
+      <td><%= link_to 'confirm', picture_path(favorite.id) %></td>
     </tr>
   <% end %>
 </table>
